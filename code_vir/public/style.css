@@ -82,43 +82,18 @@ nav a {
   align-items: center;
 }
 
-
-nav span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 130px;
-  height: 100%;
-  background: linear-gradient(45deg, #0080ff, #e100ff);
-  border-radius: 100px;
-  transition: all 1s ease;
+nav a:hover {
+  color: black;    
+  font-size: larger;
+  font-weight: 600;
 }
-
-nav a.active {
+nav a:active {
   color: #fff;
   background: linear-gradient(45deg, #0080ff, #e100ff);
   border-radius: 100px;
   transition: background 0.3s, color 0.3s;
+  color: white;
 }
-
-nav a:nth-child(1):hover ~ span {
-  left: 0;
-}
-
-nav a:nth-child(2):hover ~ span {
-  left: 174px;
-}
-
-nav a:nth-child(3):hover ~ span {
-  left: 363px;
-  width: 110px;
-}
-
-nav a:nth-child(4):hover ~ span {
-  left: 529px;
-  width: 130px;
-}
-
 .btn {
   /* background-color: #10b981; */
   display: flex;
@@ -667,3 +642,71 @@ footer {
     font-size: 5em;
   }
 }
+
+
+/* Feature section cards responsiveness */
+@media (max-width: 767px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Steps section responsiveness */
+@media (max-width: 767px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Testimonials section responsiveness */
+@media (max-width: 767px) {
+  .testimonial-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* Footer adjustments */
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Button adjustments for smaller screens */
+@media (max-width: 480px) {
+  button {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.875rem;
+  }
+
+  .btn {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    width: auto;
+    justify-content: flex-end;
+    padding: 0 1rem;
+  }
+
+  nav a {
+    display: none; /* hide nav links */
+  }
+}
+

@@ -9,7 +9,7 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <link rel="stylesheet" href="/progress.css" />
+  <link rel="stylesheet" href="/progress.css">
 </head>
 
 <body>
@@ -22,140 +22,49 @@
       <a href="/Courses">Courses</a>
       <a href="/progress">Progress</a>
       <a href="/reminder">Reminders</a>
-      <span></span>
     </nav>
     <div class="btn">
       <button class=" fancy-button">Login</button>
     </div>
   </header>
 
-  <div class="container">
-    <!-- Page Header -->
-    <div class="card-header">
-      <h2><i class="fas fa-chart-line"></i> Track Your Progress</h2>
-      <p>Monitor your learning journey and see your improvement analytics</p>
-    </div>
+  <main class="container">
+    <!-- Student Input Form -->
+    <section>
+      <h2>Enter Your Data</h2>
+      <form id="studentForm">
+        <label>Subject Name</label>
+        <input type="text" id="courseName" placeholder="e.g. Math" required>
 
-    <!-- Progress Overview -->
-    <div class="progress-overview">
-      <div class="progress-card">
-        <i class="fas fa-check-circle"></i>
-        <h3>Overall Completion</h3>
-        <div class="stat">85%</div>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 85%;"></div>
-        </div>
-      </div>
-      <div class="progress-card">
-        <i class="fas fa-clock"></i>
-        <h3>Study Hours This Week</h3>
-        <div class="stat">12h 30m</div>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 70%;"></div>
-        </div>
-      </div>
-      <div class="progress-card">
-        <i class="fas fa-star"></i>
-        <h3>Average Quiz Score</h3>
-        <div class="stat">92%</div>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 92%;"></div>
-        </div>
-      </div>
-    </div>
+        <label>Completion (%)</label>
+        <input type="number" id="courseCompletion" placeholder="e.g. 70" required>
 
-    <!-- Subject Analytics -->
-    <div class="subject-analytics">
-      <div class="subject-card">
-        <i class="fas fa-flask"></i>
-        <h4>Physics</h4>
-        <div class="improvement">+15%</div>
-        <p>Improvement this month</p>
-      </div>
-      <div class="subject-card">
-        <i class="fas fa-book"></i>
-        <h4>Mathematics</h4>
-        <div class="improvement">+8%</div>
-        <p>Improvement this month</p>
-      </div>
-      <div class="subject-card">
-        <i class="fas fa-brain"></i>
-        <h4>Biology</h4>
-        <div class="improvement negative">-2%</div>
-        <p>Improvement this month</p>
-      </div>
-      <div class="subject-card">
-        <i class="fas fa-globe"></i>
-        <h4>Chemistry</h4>
-        <div class="improvement">+22%</div>
-        <p>Improvement this month</p>
-      </div>
-    </div>
+        <label>Study Hours (this week)</label>
+        <input type="number" id="studyHours" placeholder="e.g. 5" required>
 
-    <!-- Improvement Graph -->
-    <div class="improvement-graph">
-      <div class="graph-header">
-        <h3>Weekly Progress Improvement</h3>
-        <p>Your performance trend over the last 4 weeks</p>
-      </div>
-      <div class="bars-container">
-        <div class="bar">
-          <div class="bar-fill" data-height="65" style="height: 65%;"></div>
-          <div class="bar-label">Week 1</div>
-        </div>
-        <div class="bar">
-          <div class="bar-fill" data-height="78" style="height: 78%;"></div>
-          <div class="bar-label">Week 2</div>
-        </div>
-        <div class="bar">
-          <div class="bar-fill" data-height="85" style="height: 85%;"></div>
-          <div class="bar-label">Week 3</div>
-        </div>
-        <div class="bar">
-          <div class="bar-fill" data-height="92" style="height: 92%;"></div>
-          <div class="bar-label">Week 4</div>
-        </div>
-      </div>
-    </div>
+        <label>Quiz Score (%)</label>
+        <input type="number" id="quizScore" placeholder="e.g. 80" required>
 
-    <!-- Recent Activity -->
-    <div class="recent-activity">
-      <div class="activity-header">
-        <i class="fas fa-history"></i>
-        <h3>Recent Activity</h3>
-      </div>
-      <ul class="activity-list">
-        <li class="activity-item">
-          <i class="fas fa-book-open"></i>
-          <div class="activity-details">
-            <h5>Completed Physics Chapter 3</h5>
-            <p>2 hours ago • 45 minutes studied</p>
-          </div>
-        </li>
-        <li class="activity-item">
-          <i class="fas fa-clipboard-check"></i>
-          <div class="activity-details">
-            <h5>Quiz: Mathematics - Score 95%</h5>
-            <p>5 hours ago • 10 questions answered</p>
-          </div>
-        </li>
-        <li class="activity-item">
-          <i class="fas fa-lightbulb"></i>
-          <div class="activity-details">
-            <h5>Reviewed Biology Flashcards</h5>
-            <p>1 day ago • 20 cards flipped</p>
-          </div>
-        </li>
-        <li class="activity-item">
-          <i class="fas fa-chart-bar"></i>
-          <div class="activity-details">
-            <h5>Tracked Weekly Progress</h5>
-            <p>2 days ago • Updated analytics</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+        <input class="buttonwa" type="submit"></input>
+      </form>
+    </section>
+
+    <!-- Dashboard -->
+    <section>
+      <h2>Course Completion</h2>
+      <div class="course-grid" id="courses"></div>
+    </section>
+
+    <section>
+      <h2>Weekly Study Hours</h2>
+      <canvas id="studyChart" width="600" height="200"></canvas>
+    </section>
+
+    <section>
+      <h2>Average Quiz Scores</h2>
+      <ul id="scores"></ul>
+    </section>
+  </main>
 
   <footer data-aos="zoom-in-up">
     <div class="container">
@@ -197,5 +106,7 @@
       </div>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./progress.js"></script>
 </body>
 </html>

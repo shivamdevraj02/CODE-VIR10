@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser'); // not required in latest express but works
+app.use(express.static('public'));
+
 
 app.use(bodyParser.urlencoded()); // to parse form data
 
